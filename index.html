@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dynamic JS Example</title>
+  <style>
+    #dynamicText {
+      font-size: 20px;
+      color: blue;
+      margin-bottom: 10px;
+    }
+    #addedElement {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: lightyellow;
+      border: 1px solid orange;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="dynamicText">Original Text</div>
+  <button id="changeTextBtn">Change Text & Style</button>
+  <button id="toggleElementBtn">Add/Remove Element</button>
+
+  <script>
+    const dynamicText = document.getElementById('dynamicText');
+    const changeTextBtn = document.getElementById('changeTextBtn');
+    const toggleElementBtn = document.getElementById('toggleElementBtn');
+
+    // Change text content and modify CSS styles dynamically
+    changeTextBtn.addEventListener('click', () => {
+      dynamicText.textContent = "Text updated dynamically!";
+      dynamicText.style.color = 'crimson';
+      dynamicText.style.fontWeight = 'bold';
+      dynamicText.style.fontSize = '24px';
+    });
+
+    // Add or remove an element on button click
+    toggleElementBtn.addEventListener('click', () => {
+      const existingElement = document.getElementById('addedElement');
+
+      if (existingElement) {
+        // Remove the element if it already exists
+        existingElement.remove();
+      } else {
+        // Create a new element and add it to the DOM
+        const newElement = document.createElement('div');
+        newElement.id = 'addedElement';
+        newElement.textContent = "I'm a dynamically added element!";
+        document.body.appendChild(newElement);
+      }
+    });
+  </script>
+
+</body>
+</html>
